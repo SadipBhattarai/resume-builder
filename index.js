@@ -7,11 +7,12 @@ const indexRouter = require("./routes/index.js");
 
 const PORT = process.env.PORT || 8006;
 
-app.use("/", indexRouter);
 
 app.use(express.static("public"));
 app.use(morgan("tiny"));
 app.use(express.json());
+
+app.use("/", indexRouter);
 
 mongoose
   .connect(process.env.DB_URL)

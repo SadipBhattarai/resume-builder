@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const userRouter = require("../modules/users/user.route");
 
-router.use("/", (req, res, next) => {
+router.get("/", (req, res, next) => {
   try {
     res.json({ data: "API is working Properly" });
   } catch (error) {
@@ -9,6 +9,9 @@ router.use("/", (req, res, next) => {
   }
 });
 
-router.use("api/v1/users", userRouter);
+router.use("/api/v1/users", userRouter);
+
+
+
 
 module.exports = router;
